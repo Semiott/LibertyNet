@@ -1,16 +1,16 @@
-template ImmunityMultiplier(ImmunityFactor) {
-    signal private input ImmunityType;
-    signal private input ImmunitySource;
-    signal output ImmunityIndex;
+template ClimateContigencyWarnings(WhistleCount) {
+    signal private input WhistleType;
+    signal private input WhistleSource;
+    signal output WhistleIndex;
 
-    signal int[ImmunityFactor];
+    signal int[WhistleCount];
 
-    int[0] <== ImmunityType*ImmunityType + ImmunitySource;
-    for (var i=1; i<ImmunityFactor; i++) {
-    int[i] <== int[i-1]*int[i-1] + ImmunitySource;
+    int[0] <== WhistleType*WhistleType*WhistleSource;
+    for (var i=1; i<WhistleCount; i++) {
+    int[i] <== int[i-1]*int[i-1] + WhistleSource;
     }
 
-    ImmunityIndex <== int[ImmunityFactor-1];
+    WhistleIndex <== int[WhistleCount-1];
 }
 
-component main = ImmunityMultiplier(1000);
+component main = ClimateContigencyWarnings(1000);
