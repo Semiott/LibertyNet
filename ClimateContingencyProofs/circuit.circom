@@ -6,7 +6,7 @@ template ClimateContingencyWarnings(WhistleCount) {
     signal int[WhistleCount];
 
     int[0] <== WhistleType * WhistleSource;
-    for (var i=1; i<WhistleCount; i++) {
+    for (var i=1; i<WhistleIndex; i++) {
     int[i] <== int[i-1]*int[i-1] + WhistleSource;
     }
 
